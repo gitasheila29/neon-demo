@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Analytics</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f0f2f5; display: flex; justify-content: center; }
+  .panel { background: #fff; border-radius: 8px; border: 1px solid #ddd; padding: 20px; width: 400px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+  h3 { margin-top: 0; color: #333; }
+</style>
+</head>
+<body>
+<div class="panel">
+  <h3>Site Analytics</h3>
+  <canvas id="viewsChart" width="350" height="200"></canvas>
+</div>
+
+<script>
+const ctx = document.getElementById('viewsChart').getContext('2d');
+const viewsChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Politics', 'Sports', 'Culture', 'Tech', 'Lifestyle'],
+        datasets: [{
+            label: 'Views Today',
+            data: [420, 310, 205, 540, 275],
+            backgroundColor: '#4CAF50'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+</script>
+</body>
+</html>
